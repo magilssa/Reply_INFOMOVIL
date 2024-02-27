@@ -59,6 +59,7 @@ import com.example.reply.data.local.LocalAccountsDataProvider
 import com.example.reply.ui.utils.ReplyContentType
 import com.example.reply.ui.utils.ReplyNavigationType
 
+
 @Composable
 fun ReplyHomeScreen(
     navigationType: ReplyNavigationType,
@@ -108,6 +109,7 @@ fun ReplyHomeScreen(
                     )
                 }
             },
+
             modifier = Modifier.testTag(navigationDrawerContentDescription)
         ) {
             ReplyAppContent(
@@ -139,6 +141,23 @@ fun ReplyHomeScreen(
                 isFullScreen = true
             )
         }
+    }
+    if (replyUiState.isShowingHomepage) {
+        ReplyAppContent(
+            navigationType = navigationType,
+            contentType = contentType,
+            replyUiState = replyUiState,
+            onTabPressed = onTabPressed,
+            onEmailCardPressed = onEmailCardPressed,
+            navigationItemContentList = navigationItemContentList,
+            modifier = modifier
+        )
+    } else {
+        ReplyDetailsScreen(
+            replyUiState = replyUiState,
+            onBackPressed = onDetailScreenBackPressed,
+            modifier = modifier
+        )
     }
 }
 

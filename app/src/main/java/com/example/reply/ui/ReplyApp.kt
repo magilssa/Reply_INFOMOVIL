@@ -53,6 +53,7 @@ fun ReplyApp(
             contentType = ReplyContentType.LIST_ONLY
         }
     }
+
     ReplyHomeScreen(
         navigationType = navigationType,
         contentType = contentType,
@@ -70,5 +71,6 @@ fun ReplyApp(
             viewModel.resetHomeScreenStates()
         },
         modifier = modifier
+
     )
 }
